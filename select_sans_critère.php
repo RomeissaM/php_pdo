@@ -2,7 +2,8 @@
 
 $mysql_username = "root";
 $mysql_password = "";
-$mysql_db = "php_pdo";
+$mysql_db = "php_pdo"; 
+
 
 // DSN: Data Source Name : URL de connexion
 try{
@@ -27,7 +28,7 @@ try{
    // foreach ($resultat as $key => $value) {
    //     echo "\n $value[0] $value[1] $value[2] $value[3]";
    // }  
-   
+
 } catch(PDOException $ex){
     echo "\nErreur : problème de connexion avec la BD" . $ex->getMessage();
 }
