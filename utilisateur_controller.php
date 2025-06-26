@@ -1,18 +1,27 @@
 <?php
-include './utilisateurs_repository.php';
+include './utilisateur_repository.php';
 
 // traiter les données de la page Connexion.php
-if (str_contains($_SERVER['HTTP_REFERER'], "connexion")) {
+if (str_contains($_SERVER['HTTP_REFERER'], "connexion.php")) {
     $name = $_POST['username'];
     $pwd = $_POST['password'];
     check_username_and_password($name, $pwd);
 }
-if (str_contains($_SERVER['HTTP_REFERER'], "utilisateurs")) {
+// s'exécute en soumettant le formulaire d'ajout de nouvel utilisateur
+if (str_contains($_SERVER['HTTP_REFERER'], "utilisateur.php") and $_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['username'];
     $pwd = $_POST['password'];
     $nom = $_POST['nom'];
     save($name, $pwd, $nom);
-    header("location: utilisateurs.php");
+    header("location: utilisateur.php");
+    die();
+}
+// s'exécute en cliquant sur le lien de suppression
+if (str_contains($_SERVER['HTTP_REFERER'], "utilisateur.php") and $_SERVER['REQUEST_METHOD'] == 'GET') {
+
+    $id = $_GET['id'];
+    remove($id);
+    header("location: utilisateur.php");
     die();
 }
 

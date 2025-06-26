@@ -62,3 +62,20 @@ function save($name, $pwd, $nom)
         echo "\nErreur : problème de connexion avec la BD" . $ex->getMessage();
     }
 }
+function remove($id)
+{
+    $mysql_username = "root";
+    $mysql_password = "";
+    $mysql_db = "php_pdo";
+
+    try {
+        $dsn = "mysql:host=localhost;port=3306;dbname=$mysql_db;charset=utf8";
+        $pdo = new PDO($dsn, $mysql_username, $mysql_password);
+        $select = "DELETE FROM utilisateurs WHERE id = :id";
+        $query = $pdo->prepare($select);
+        $query->bindValue(":id", $id);
+        $query->execute();
+    } catch (PDOException $ex) {
+        echo "\nErreur : problème de connexion avec la BD" . $ex->getMessage();
+    }
+}

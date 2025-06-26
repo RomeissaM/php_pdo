@@ -1,5 +1,5 @@
 <?php
-include "./utilisateurs_service.php";
+include "./utilisateur_service.php";
 
 $utilisateurs = show_utilisateurs_in_list();
 ?>
