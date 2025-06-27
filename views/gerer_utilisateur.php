@@ -1,5 +1,5 @@
 <?php
-include "./utilisateur_service.php";
+include  "../src/services/utilisateur_service.php";
 
 $utilisateurs = show_utilisateurs_in_list();
 ?>
@@ -16,7 +16,7 @@ $utilisateurs = show_utilisateurs_in_list();
     <h1>Gestion des utilisateurs</h1>
     <h2>Créer un nouvel utilisateur</h2>
     <main class=container>
-        <form action="./utilisateur_controller.php" method="post">
+        <form action="../src/controllers/utilisateur_controller.php" method="post">
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label" for="username">Nom d'utilisateur</label>
                 <div class="col-sm-10">
